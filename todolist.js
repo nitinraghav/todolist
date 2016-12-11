@@ -1,6 +1,6 @@
 var todoList = {
 	//store Todos
-	todo: ['item 1', 'item 2', 'item 3'],
+	todo: [],
 	
 	//display todos
 	displayTodo: function(){
@@ -8,14 +8,17 @@ var todoList = {
 	},
 
 	//add todos
-	addTodo: function(todo){
-		this.todo.push(todo);
+	addTodo: function(todoText){
+		this.todo.push({
+			todoText = todoText,
+			completed = false,
+		});
 		this.displayTodo();
 	},
 
 	//change todos
-	changeTodo: function(position, newValue){
-		this.todo[position] = newValue;
+	changeTodo: function(position, todoText){
+		this.todo[position].todoText = todoText;
 		this.displayTodo();
 	},
 
@@ -23,5 +26,11 @@ var todoList = {
 	deleteTodo: function(position){
 		this.todo.splice(position, 1);
 		this.displayTodo();
-	}
-}
+	},
+
+	toggleTodo: function(position){
+		var todo = this.todo[position];
+		todo.completed = ! todo.completed;
+		this.displayTodo();
+	},
+};
