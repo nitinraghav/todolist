@@ -4,7 +4,18 @@ var todoList = {
 	
 	//display todos
 	displayTodo: function(){
-		console.log('My todos:', this.todo);
+		if (this.todo.length === 0){
+			console.log('Your todolist is empty!');
+		} else {
+			console.log('My todos:');
+			for (var i = 0; i < this.todo.length; i++){
+				if(this.todo[i].completed === true){
+					console.log('(X)', this.todo[i].todoText);
+				} else {
+					console.log('( )', this.todo[i].todoText);
+				}
+			}
+		}
 	},
 
 	//add todos
