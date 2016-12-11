@@ -44,4 +44,26 @@ var todoList = {
 		todo.completed = ! todo.completed;
 		this.displayTodo();
 	},
+
+	toggleAll: function(){
+		var totalTodos = this.todo.length;
+		var completedTodos = 0;
+
+		for (var i = 0; i < totalTodos; i++){
+			if (this.todo[i].completed === true){
+				completedTodos++;
+			}
+		}
+
+		if (completedTodos === totalTodos) {
+			for (var i = 0; i < totalTodos; i++){
+			this.todo[i].completed = false;
+			} 
+		} else {
+			for (var i = 0; i < totalTodos; i ++){
+				this.todo[i].completed = true;
+			}
+		}
+		this.displayTodo();
+	}	
 };
