@@ -20,21 +20,21 @@ var todoList = {
 		var totalTodos = this.todo.length;
 		var completedTodos = 0;
 
-		for (var i = 0; i < totalTodos; i++){
-			if (this.todo[i].completed === true){
+		this.todo.forEach(function(todo){
+			if(todo.completed === true){
 				completedTodos++;
 			}
-		}
+		});
 
-		if (completedTodos === totalTodos) {
-			for (var i = 0; i < totalTodos; i++){
-			this.todo[i].completed = false;
-			} 
-		} else {
-			for (var i = 0; i < totalTodos; i ++){
-				this.todo[i].completed = true;
+		this.todo.forEach(function(todo){
+			// case 1: If everything is true, make everything false.
+			if(completedTodos === totalTodos){
+				todo.completed = false;
+			// case 2: Otherwise, make everything true.
+			} else {
+				todo.completed = true;
 			}
-		}
+		});
 	}	
 };
 
@@ -74,9 +74,8 @@ var view = {
 		var todosUl = document.querySelector('ul');
 		todosUl.innerHTML = "";
 
-		for(var i = 0; i < todoList.todo.length; i++){
+		todoList.todo.forEach(function(todo, position){
 			var todoLi = document.createElement('li');
-			var todo = todoList.todo[i];
 			var todoTextWithCompletion = "";
 
 			if (todo.completed === true){
@@ -85,11 +84,12 @@ var view = {
 				todoTextWithCompletion = "( ) " + todo.todoText;
 			}
 
-			todoLi.id = i;
+			todoLi.id = position;
 			todoLi.textContent = todoTextWithCompletion;
 			todoLi.appendChild(this.createDeleteButton());
 			todosUl.appendChild(todoLi);
-		}
+
+		}, this);
 	},
 	createDeleteButton: function (){
 		var deleteButton = document.createElement("button");
