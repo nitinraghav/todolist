@@ -10,8 +10,8 @@ var todoList = {
 	//add todos
 	addTodo: function(todoText){
 		this.todo.push({
-			todoText = todoText,
-			completed = false,
+			todoText : todoText,
+			completed : false,
 		});
 		this.displayTodo();
 	},
