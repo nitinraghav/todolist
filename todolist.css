@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css?family=Audiowide|Ek+Mukta:200,300,400,500,600");
+
+body {
+	margin: 0;
+	padding: 0;
+}
+* {
+  
+  font-family: "Audiowide";
+  font-weight: 500;
+}
+
+.container {
+	border: 1px solid gray;
+	background: #FCA311;
+	padding: 10vh;
+	width: 30%;
+	margin: auto;
+	border-radius: 10px;
+	box-shadow: 8px 8px 8px gray;
+}
+
+h1 {
+	color: #FCA311;
+	text-align: center;
+	font-size: 4em;
+}
+#changeTodoPositionInput{
+	width: 10%;
+}
+button{
+	border-radius: 4px;
+	background: #fff;
+	text-align: left;
+	margin: 2%;
+}
+
